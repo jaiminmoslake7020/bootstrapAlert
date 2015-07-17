@@ -1,0 +1,50 @@
+   var typeArray = {"success":"Suceess", "danger":"Error", "info":"Info", "warning":"Warning"};
+   var iconArray = {"success":"check", "danger":"times", "info":"info", "warning":"ban"};
+
+
+   function createAlert(message , type)
+   {
+       if(typeof type == undefined )
+       {
+           type = "danger" ;
+       }
+
+       $div = $("<div></div>");
+       $div.addClass('alert');
+       $div.addClass('alert-'+type);
+       $div.addClass('alert-dismissible');
+
+       $div.attr('role','alert');
+
+       $button = $("<button></button>");
+       $button.addClass('close');
+       $button.attr('type','button');
+       $button.attr('data-dismiss','alert');
+       $button.attr('aria-label','close');
+       $button.html('<span aria-hidden="true">×</span>');
+
+       $i = $("<i></i>");
+       $i.addClass('fa');
+       $i.addClass('fa-'+iconArray[type]);
+
+       $strong = $("<strong></strong>");
+       $strong.html(typeArray[type]+" : ");
+
+       $div.append($button);
+       $div.append($i);
+       $div.append("&nbsp;");
+       $div.append($strong);
+       $div.append('<span>'+message+'</span>');
+
+
+       return $div ;
+   }
+
+   function selfDestruct(ref, time)
+   {
+       setTimeout(function(){
+
+           ref.fadeOut('slow');
+
+       },time);
+   }
