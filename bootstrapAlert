@@ -48,3 +48,11 @@
 
        },time);
    }
+
+
+// Usage
+
+
+       $div  =  createAlert("Info succefully added." , "success") ;
+       $("#modalAdditional").find(".modal-body").prepend($div);
+       selfDestruct($div,3000);
